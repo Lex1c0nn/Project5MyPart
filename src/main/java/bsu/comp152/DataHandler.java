@@ -45,7 +45,8 @@ public class DataHandler {
         return cityData;
     }
 }
-
+                        //need a new class for weather instance variables, need a new method similar to woeID that will
+                        // loop 5 times to grab the 5 day forecast and some how store variables each time for te display
 class WoeIDData{
     String title;
     String location_type;

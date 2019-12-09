@@ -34,7 +34,7 @@ public class Controller implements Initializable{
 
     public void loadData(ActionEvent event) {
         var site = "https://www.metaweather.com/api/";
-        var city = location.getText().toLowerCase();  //need a try/catch here for bad user inputs
+        var city = location.getText().toLowerCase();  //need a try/catch here for bad user inputs (replace a " " with "%20")
 
         if (city.length()< 1){
             location.deleteText(0, city.length());
@@ -47,7 +47,9 @@ public class Controller implements Initializable{
         var woeIDSite = site+ "location/search/?query="+ city;
         WoeIDData data = handler.getWoeID(woeIDSite);
 
-        
+        var weatherSite = site+ "location/"+ data.woeid+ "/";
+
+
         System.out.println(data);
         System.out.println(data.woeid); //we got em bois!
         //displayData(data);
