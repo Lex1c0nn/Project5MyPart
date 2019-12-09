@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bsu.comp152.Controller">
+   <children>
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #353436;">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TextField fx:id="location" layoutX="120.0" layoutY="32.5" promptText="Ex: Boston" />
+                  <Label layoutX="50.0" layoutY="35.0" text="* Major City:" textFill="WHITE" />
+                  <Label layoutX="385.0" layoutY="14.0" text="Desired Information" textFill="#15b293">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="352.5" layoutY="27.5" text="(Weather State &amp; Temp provided by default)" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="10.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="humidity" layoutX="473.0" layoutY="50.0" mnemonicParsing="false" text="Humidity" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </RadioButton>
+                  <MenuButton fx:id="scaleSelect" layoutX="360.0" layoutY="50.0" mnemonicParsing="false" text="Centigrade">
+                    <items>
+                      <MenuItem fx:id="centigrade" mnemonicParsing="false" text="Centigrade" />
+                      <MenuItem fx:id="fahrenheit" mnemonicParsing="false" text="Fahrenheit" />
+                        <MenuItem fx:id="kelvin" mnemonicParsing="false" text="Kelvin" />
+                    </items>
+                  </MenuButton>
+                  <RadioButton fx:id="wind" layoutX="473.0" layoutY="75.0" mnemonicParsing="false" text="Wind" textFill="WHITE" />
+                  <RadioButton fx:id="airPressure" layoutX="473.0" layoutY="100.0" mnemonicParsing="false" text="Air Pressure" textFill="WHITE" />
+                  <RadioButton fx:id="visibility" layoutX="473.0" layoutY="125.0" mnemonicParsing="false" text="Visibility" textFill="WHITE" />
+                  <ImageView fitHeight="107.0" fitWidth="149.0" layoutX="15.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../Pictures/WeatherWalrus.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="26.0" layoutY="82.0" rotate="-8.1" text="Wally" textFill="#15b293">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="250.0" layoutY="110.0" mnemonicParsing="false" onAction="#loadData" prefHeight="50.0" prefWidth="100.0" text="ACTIVATE WALRUS WEATHER PREDICTION" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Arial Bold" size="9.0" />
+                     </font>
+                  </Button>
+                  <Line endX="15.0" endY="-10.0" layoutX="145.0" layoutY="100.0" stroke="WHITE" />
+                  <Label layoutX="170.0" layoutY="60.0" prefHeight="50.0" prefWidth="100.0" text="Hey there friend! What city's weather would you like to see?" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Arial Bold" size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <VBox layoutY="5.0" prefHeight="180.0" prefWidth="600.0">
+                     <children>
+                        <Label alignment="TOP_CENTER" text="FORECAST" textAlignment="CENTER" textFill="#15b293">
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="261.5" />
+                           </padding>
+                        </Label>
+                        <HBox prefHeight="160.0" prefWidth="600.0">
+                           <children>
+                              <VBox alignment="CENTER" layoutY="10.0" prefHeight="160.0" prefWidth="120.0">
+                                 <children>
+                                    <Label text="Day 0 (Today)" textFill="WHITE" underline="true">
+                                       <font>
+                                          <Font name="Arial Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="imageD0" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <Label fx:id="tempD0" text="Temp" textFill="WHITE" />
+                                    <Label fx:id="humidD0" text="Humidity" textFill="WHITE" />
+                                    <Label fx:id="windD0" text="Wind" textFill="WHITE" />
+                                    <Label fx:id="airPressD0" text="AirPress" textFill="WHITE" />
+                                    <Label fx:id="visD0" text="Vis" textFill="WHITE" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutY="10.0" prefHeight="160.0" prefWidth="120.0">
+                                 <children>
+                                    <Label text="Day 1" textFill="WHITE" underline="true">
+                                       <font>
+                                          <Font name="Arial Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="imageD1" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <Label fx:id="tempD1" text="Temp" textFill="WHITE" />
+                                    <Label fx:id="humidD1" text="Humidity" textFill="WHITE" />
+                                    <Label fx:id="windD1" text="Wind" textFill="WHITE" />
+                                    <Label fx:id="airPressD1" text="AirPress" textFill="WHITE" />
+                                    <Label fx:id="visD1" text="Vis" textFill="WHITE" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutY="10.0" prefHeight="160.0" prefWidth="120.0">
+                                 <children>
+                                    <Label text="Day 2" textFill="WHITE" underline="true">
+                                       <font>
+                                          <Font name="Arial Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="imageD2" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <Label fx:id="tempD2" text="Temp" textFill="WHITE" />
+                                    <Label fx:id="humidD2" text="Humidity" textFill="WHITE" />
+                                    <Label fx:id="windD2" text="Wind" textFill="WHITE" />
+                                    <Label fx:id="airPressD2" text="AirPress" textFill="WHITE" />
+                                    <Label fx:id="visD2" text="Vis" textFill="WHITE" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutY="10.0" prefHeight="160.0" prefWidth="120.0">
+                                 <children>
+                                    <Label text="Day 3" textFill="WHITE" underline="true">
+                                       <font>
+                                          <Font name="Arial Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="imageD3" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <Label fx:id="tempD3" text="Temp" textFill="WHITE" />
+                                    <Label fx:id="humidD3" text="Humidity" textFill="WHITE" />
+                                    <Label fx:id="windD3" text="Wind" textFill="WHITE" />
+                                    <Label fx:id="airPressD3" text="AirPress" textFill="WHITE" />
+                                    <Label fx:id="visD3" text="Vis" textFill="WHITE" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutY="10.0" prefHeight="160.0" prefWidth="120.0">
+                                 <children>
+                                    <Label text="Day 4" textFill="WHITE" underline="true">
+                                       <font>
+                                          <Font name="Arial Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="imageD4" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <Label fx:id="tempD4" text="Temp" textFill="WHITE" />
+                                    <Label fx:id="humidD4" text="Humidity" textFill="WHITE" />
+                                    <Label fx:id="windD4" text="Wind" textFill="WHITE" />
+                                    <Label fx:id="airPressD4" text="AirPress" textFill="WHITE" />
+                                    <Label fx:id="visD4" text="Vis" textFill="WHITE" />
+                                 </children>
+                              </VBox>
+                           </children></HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
