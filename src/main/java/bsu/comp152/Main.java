@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
@@ -30,6 +31,8 @@ public class Main extends Application {
         Scene windowContents = new Scene(root, 600, 400);
         primaryStage.setScene(windowContents);
         primaryStage.setTitle("Wally's Weather Report");
+        primaryStage.getIcons().add(new Image("https://pngriver.com/wp-content/uploads/2018/04/" +
+                "Download-Walrus-PNG-Free-Download-For-Designing-Projects.png"));
         primaryStage.setResizable(false);
         primaryStage.show();
     }

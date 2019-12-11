@@ -1,7 +1,6 @@
 package bsu.comp152;
 
 import com.google.gson.Gson;
-import javafx.scene.control.Alert;
 
 import java.io.IOException;
 import java.net.URI;
