@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
@@ -18,7 +19,8 @@ public class Controller implements Initializable{
     public RadioButton humidity, wind, airPressure, visibility;
     public TextField location;
     public ImageView imageD0, imageD1, imageD2, imageD3, imageD4;
-    public Label tempD0, tempD1, tempD2, tempD3, tempD4,
+    public Label date0, date1, date2, date3, date4,
+            tempD0, tempD1, tempD2, tempD3, tempD4,
             humidD0, humidD1, humidD2, humidD3, humidD4,
             windD0, windD1, windD2, windD3, windD4,
             airPressD0, airPressD1, airPressD2, airPressD3, airPressD4,
@@ -70,6 +72,29 @@ public class Controller implements Initializable{
                 weatherListHandler.getWeather(weatherSite))[3]);
         WeatherData4 w4Data = weatherListHandler.grabWeatherData4(weatherListHandler.dailyWeather(
                 weatherListHandler.getWeather(weatherSite))[4]);
+
+        date0.setText(w0Data.applicable_date);
+        date1.setText(w1Data.applicable_date);
+        date2.setText(w2Data.applicable_date);
+        date3.setText(w3Data.applicable_date);
+        date4.setText(w4Data.applicable_date);
+
+        String basePath = "https://www.metaweather.com/static/img/weather/png/";
+
+        Image image0 = new Image(basePath+ w0Data.weather_state_abbr+ ".png");
+        imageD0.setImage(image0);
+        Image image1 = new Image(basePath+ w1Data.weather_state_abbr+ ".png");
+        imageD1.setImage(image1);
+        Image image2 = new Image(basePath+ w2Data.weather_state_abbr+ ".png");
+        imageD2.setImage(image2);
+        Image image3 = new Image(basePath+ w3Data.weather_state_abbr+ ".png");
+        imageD3.setImage(image3);
+        Image image4 = new Image(basePath+ w4Data.weather_state_abbr+ ".png");
+        imageD4.setImage(image4);
+
+        if (scaleSelect.getText() == "Fahrenheit"){
+
+        }
     }
 
     private ArrayList<String> getRequestedData(){
