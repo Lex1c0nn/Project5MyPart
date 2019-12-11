@@ -28,12 +28,12 @@ public class Main extends Application {
         }catch (IOException e) {
             System.out.println("Could not find FXML file!!!");
         }
-        Scene windowContents = new Scene(root, 600, 400);
-        primaryStage.setScene(windowContents);
-        primaryStage.setTitle("Wally's Weather Report");
+        Scene windowContents = new Scene(root, 600, 400); //sets scene
+        primaryStage.setScene(windowContents); //sets the scene in the window
+        primaryStage.setTitle("Wally's Weather Report"); //sets window title
         primaryStage.getIcons().add(new Image("https://pngriver.com/wp-content/uploads/2018/04/" +
-                "Download-Walrus-PNG-Free-Download-For-Designing-Projects.png"));
-        primaryStage.setResizable(false);
-        primaryStage.show();
+                "Download-Walrus-PNG-Free-Download-For-Designing-Projects.png")); //sets app icon
+        primaryStage.setResizable(false); //prevents resizing
+        primaryStage.show(); //displays window
     }
 }

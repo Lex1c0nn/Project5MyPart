@@ -40,7 +40,7 @@ public class DataHandler {
         var jsonInterpreter = new Gson();
         var cityData = jsonInterpreter.fromJson(usefulData, WoeIDData.class);
         return cityData;
-    }
+    } //gets the return data for a city name query and fills WoeIDData class
 
     public String getWeather(String webLocation) {
         var requestBuilder = HttpRequest.newBuilder();
@@ -60,12 +60,12 @@ public class DataHandler {
 
         var weatherResponse = response.body();
         return weatherResponse;
-    }
+    } //gets the return data for a woeID query and returns it as a string
 
     public String[] dailyWeather(String fullWeather) {
         String weatherList[] = fullWeather.split("}",6);
         return weatherList;
-    }
+    } //breaks down woeID query data into separate strings by day
 
     public WeatherData0 grabWeatherData0(String wotd){
         var todaysWeather = wotd.substring(25);
@@ -74,7 +74,7 @@ public class DataHandler {
         var jsonInterpreter = new Gson();
         var weatherData = jsonInterpreter.fromJson(todaysWeather, WeatherData0.class);
         return weatherData;
-    }
+    } //parses the json object and fills the respective weather data class
 
     public WeatherData1 grabWeatherData1(String wotd){
         var todaysWeather = wotd.substring(1);
@@ -83,7 +83,7 @@ public class DataHandler {
         var jsonInterpreter = new Gson();
         var weatherData = jsonInterpreter.fromJson(todaysWeather, WeatherData1.class);
         return weatherData;
-    }
+    } //parses the json object and fills the respective weather data class
 
     public WeatherData2 grabWeatherData2(String wotd){
         var todaysWeather = wotd.substring(1);
@@ -92,7 +92,7 @@ public class DataHandler {
         var jsonInterpreter = new Gson();
         var weatherData = jsonInterpreter.fromJson(todaysWeather, WeatherData2.class);
         return weatherData;
-    }
+    } //parses the json object and fills the respective weather data class
 
     public WeatherData3 grabWeatherData3(String wotd){
         var todaysWeather = wotd.substring(1);
@@ -101,7 +101,7 @@ public class DataHandler {
         var jsonInterpreter = new Gson();
         var weatherData = jsonInterpreter.fromJson(todaysWeather, WeatherData3.class);
         return weatherData;
-    }
+    } //parses the json object and fills the respective weather data class
 
     public WeatherData4 grabWeatherData4(String wotd){
         var todaysWeather = wotd.substring(1);
@@ -110,7 +110,7 @@ public class DataHandler {
         var jsonInterpreter = new Gson();
         var weatherData = jsonInterpreter.fromJson(todaysWeather, WeatherData4.class);
         return weatherData;
-    }
+    } //parses the json object and fills the respective weather data class
 }
 
 class WoeIDData{
@@ -118,7 +118,7 @@ class WoeIDData{
     String location_type;
     Integer woeid;
     String latt_long;
-}
+} //Class of returned values for woeID query
 
 class WeatherData0{
     Double id;
@@ -136,7 +136,7 @@ class WeatherData0{
     Float humidity;
     Float visibility;
     Integer predictability;
-}
+} //Class of returned values for respective daily weather
 
 class WeatherData1{
     Double id;
@@ -154,7 +154,7 @@ class WeatherData1{
     Float humidity;
     Float visibility;
     Integer predictability;
-}
+} //Class of returned values for respective daily weather
 
 class WeatherData2{
     Double id;
@@ -172,7 +172,7 @@ class WeatherData2{
     Float humidity;
     Float visibility;
     Integer predictability;
-}
+} //Class of returned values for respective daily weather
 
 class WeatherData3{
     Double id;
@@ -190,7 +190,7 @@ class WeatherData3{
     Float humidity;
     Float visibility;
     Integer predictability;
-}
+} //Class of returned values for respective daily weather
 
 class WeatherData4{
     Double id;
@@ -208,5 +208,5 @@ class WeatherData4{
     Float humidity;
     Float visibility;
     Integer predictability;
-}
+} //Class of returned values for respective daily weather
 

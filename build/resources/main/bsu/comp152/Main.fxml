@@ -48,7 +48,7 @@
                   <RadioButton fx:id="visibility" layoutX="473.0" layoutY="125.0" mnemonicParsing="false" text="Visibility" textFill="WHITE" />
                   <ImageView fitHeight="107.0" fitWidth="149.0" layoutX="15.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../WeatherWalrus.png" />
+                        <Image url="https://pngriver.com/wp-content/uploads/2018/04/Download-Walrus-PNG-Free-Download-For-Designing-Projects.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="26.0" layoutY="82.0" rotate="-8.1" text="Wally" textFill="#15b293">
