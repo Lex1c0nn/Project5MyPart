@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -24,17 +25,25 @@ public class Controller implements Initializable{
             visD0, visD1, visD2, visD3, visD4;
     public MenuButton scaleSelect;
     public MenuItem centigrade, fahrenheit, kelvin;
-    private DataHandler handler;
+    private DataHandler woeidHandler;
+    private DataHandler weatherListHandler;
+    private ArrayList<RadioButton> condButtons;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        handler = new DataHandler();
+        woeidHandler = new DataHandler();
+        weatherListHandler = new DataHandler();
+
+        condButtons.add(humidity);
+        condButtons.add(wind);
+        condButtons.add(airPressure);
+        condButtons.add(visibility);
     }
 
     public void loadData(ActionEvent event) {
         var site = "https://www.metaweather.com/api/";
-        var city = location.getText().toLowerCase();  //need a try/catch here for bad user inputs (replace a " " with "%20")
+        var city = location.getText().toLowerCase();
         var newCity = city.replace(" ","%20");
         System.out.println(city);
 
@@ -47,13 +56,27 @@ public class Controller implements Initializable{
         location.setPromptText("Ex: Boston");
 
         var woeIDSite = site+ "location/search/?query="+ newCity;
-        WoeIDData data = handler.getWoeID(woeIDSite);
+        WoeIDData idData = woeidHandler.getWoeID(woeIDSite);
 
-        var weatherSite = site+ "location/"+ data.woeid+ "/";
+        var weatherSite = site+ "location/"+ idData.woeid+ "/";
+        WeatherData0 w0Data = weatherListHandler.grabWeatherData0(weatherListHandler.dailyWeather(
+                weatherListHandler.getWeather(weatherSite))[0]);
+        WeatherData1 w1Data = weatherListHandler.grabWeatherData1(weatherListHandler.dailyWeather(
+                weatherListHandler.getWeather(weatherSite))[1]);
+        WeatherData2 w2Data = weatherListHandler.grabWeatherData2(weatherListHandler.dailyWeather(
+                weatherListHandler.getWeather(weatherSite))[2]);
+        WeatherData3 w3Data = weatherListHandler.grabWeatherData3(weatherListHandler.dailyWeather(
+                weatherListHandler.getWeather(weatherSite))[3]);
+        WeatherData4 w4Data = weatherListHandler.grabWeatherData4(weatherListHandler.dailyWeather(
+                weatherListHandler.getWeather(weatherSite))[4]);
+    }
 
-
-        System.out.println(data);
-        System.out.println(data.woeid); //we got em bois!
-        //displayData(data);
+    private ArrayList<String> getRequestedData(){
+        ArrayList<String> selectedData = new ArrayList<>();
+        for(var button: condButtons){
+            if(button.isSelected())
+                selectedData.add(button.getText());
+        }
+        return selectedData;
     }
 }
