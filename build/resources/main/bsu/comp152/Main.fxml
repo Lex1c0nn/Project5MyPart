@@ -62,7 +62,7 @@
                      </font>
                   </Button>
                   <Line endX="15.0" endY="-10.0" layoutX="145.0" layoutY="100.0" stroke="WHITE" />
-                  <Label layoutX="170.0" layoutY="60.0" prefHeight="50.0" prefWidth="100.0" text="Hey there friend! What city's weather would you like to see?" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Label fx:id="wallyText" layoutX="170.0" layoutY="60.0" prefHeight="50.0" prefWidth="100.0" text="Hey there friend! What city's weather would you like to see?" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -88,7 +88,7 @@
                            <children>
                               <VBox alignment="CENTER" layoutY="10.0" prefHeight="160.0" prefWidth="120.0">
                                  <children>
-                                    <Label fx:id="date0" text="Day 0 (Today)" textFill="WHITE" underline="true">
+                                    <Label fx:id="date0" textFill="WHITE" underline="true">
                                        <font>
                                           <Font name="Arial Bold" size="12.0" />
                                        </font>
@@ -98,16 +98,16 @@
                                           <Insets top="5.0" />
                                        </VBox.margin>
                                     </ImageView>
-                                    <Label fx:id="tempD0" text="Temp" textFill="WHITE" />
-                                    <Label fx:id="humidD0" text="Humidity" textFill="WHITE" />
-                                    <Label fx:id="windD0" text="Wind" textFill="WHITE" />
-                                    <Label fx:id="airPressD0" text="AirPress" textFill="WHITE" />
-                                    <Label fx:id="visD0" text="Vis" textFill="WHITE" />
+                                    <Label fx:id="tempD0" textFill="WHITE" />
+                                    <Label fx:id="humidD0" textFill="WHITE" />
+                                    <Label fx:id="windD0" textFill="WHITE" />
+                                    <Label fx:id="airPressD0" textFill="WHITE" />
+                                    <Label fx:id="visD0" textFill="WHITE" />
                                  </children>
                               </VBox>
                               <VBox alignment="CENTER" layoutY="10.0" prefHeight="160.0" prefWidth="120.0">
                                  <children>
-                                    <Label fx:id="date1" text="Day 1" textFill="WHITE" underline="true">
+                                    <Label fx:id="date1" textFill="WHITE" underline="true">
                                        <font>
                                           <Font name="Arial Bold" size="12.0" />
                                        </font>
@@ -117,16 +117,16 @@
                                           <Insets top="5.0" />
                                        </VBox.margin>
                                     </ImageView>
-                                    <Label fx:id="tempD1" text="Temp" textFill="WHITE" />
-                                    <Label fx:id="humidD1" text="Humidity" textFill="WHITE" />
-                                    <Label fx:id="windD1" text="Wind" textFill="WHITE" />
-                                    <Label fx:id="airPressD1" text="AirPress" textFill="WHITE" />
-                                    <Label fx:id="visD1" text="Vis" textFill="WHITE" />
+                                    <Label fx:id="tempD1" textFill="WHITE" />
+                                    <Label fx:id="humidD1" textFill="WHITE" />
+                                    <Label fx:id="windD1" textFill="WHITE" />
+                                    <Label fx:id="airPressD1" textFill="WHITE" />
+                                    <Label fx:id="visD1" textFill="WHITE" />
                                  </children>
                               </VBox>
                               <VBox alignment="CENTER" layoutY="10.0" prefHeight="160.0" prefWidth="120.0">
                                  <children>
-                                    <Label fx:id="date2" text="Day 2" textFill="WHITE" underline="true">
+                                    <Label fx:id="date2" textFill="WHITE" underline="true">
                                        <font>
                                           <Font name="Arial Bold" size="12.0" />
                                        </font>
@@ -136,16 +136,16 @@
                                           <Insets top="5.0" />
                                        </VBox.margin>
                                     </ImageView>
-                                    <Label fx:id="tempD2" text="Temp" textFill="WHITE" />
-                                    <Label fx:id="humidD2" text="Humidity" textFill="WHITE" />
-                                    <Label fx:id="windD2" text="Wind" textFill="WHITE" />
-                                    <Label fx:id="airPressD2" text="AirPress" textFill="WHITE" />
-                                    <Label fx:id="visD2" text="Vis" textFill="WHITE" />
+                                    <Label fx:id="tempD2" textFill="WHITE" />
+                                    <Label fx:id="humidD2" textFill="WHITE" />
+                                    <Label fx:id="windD2" textFill="WHITE" />
+                                    <Label fx:id="airPressD2" textFill="WHITE" />
+                                    <Label fx:id="visD2" textFill="WHITE" />
                                  </children>
                               </VBox>
                               <VBox alignment="CENTER" layoutY="10.0" prefHeight="160.0" prefWidth="120.0">
                                  <children>
-                                    <Label fx:id="date3" text="Day 3" textFill="WHITE" underline="true">
+                                    <Label fx:id="date3" textFill="WHITE" underline="true">
                                        <font>
                                           <Font name="Arial Bold" size="12.0" />
                                        </font>
@@ -155,16 +155,16 @@
                                           <Insets top="5.0" />
                                        </VBox.margin>
                                     </ImageView>
-                                    <Label fx:id="tempD3" text="Temp" textFill="WHITE" />
-                                    <Label fx:id="humidD3" text="Humidity" textFill="WHITE" />
-                                    <Label fx:id="windD3" text="Wind" textFill="WHITE" />
-                                    <Label fx:id="airPressD3" text="AirPress" textFill="WHITE" />
-                                    <Label fx:id="visD3" text="Vis" textFill="WHITE" />
+                                    <Label fx:id="tempD3" textFill="WHITE" />
+                                    <Label fx:id="humidD3" textFill="WHITE" />
+                                    <Label fx:id="windD3" textFill="WHITE" />
+                                    <Label fx:id="airPressD3" textFill="WHITE" />
+                                    <Label fx:id="visD3" textFill="WHITE" />
                                  </children>
                               </VBox>
                               <VBox alignment="CENTER" layoutY="10.0" prefHeight="160.0" prefWidth="120.0">
                                  <children>
-                                    <Label fx:id="date4" text="Day 4" textFill="WHITE" underline="true">
+                                    <Label fx:id="date4" textFill="WHITE" underline="true">
                                        <font>
                                           <Font name="Arial Bold" size="12.0" />
                                        </font>
@@ -174,11 +174,11 @@
                                           <Insets top="5.0" />
                                        </VBox.margin>
                                     </ImageView>
-                                    <Label fx:id="tempD4" text="Temp" textFill="WHITE" />
-                                    <Label fx:id="humidD4" text="Humidity" textFill="WHITE" />
-                                    <Label fx:id="windD4" text="Wind" textFill="WHITE" />
-                                    <Label fx:id="airPressD4" text="AirPress" textFill="WHITE" />
-                                    <Label fx:id="visD4" text="Vis" textFill="WHITE" />
+                                    <Label fx:id="tempD4" textFill="WHITE" />
+                                    <Label fx:id="humidD4" textFill="WHITE" />
+                                    <Label fx:id="windD4" textFill="WHITE" />
+                                    <Label fx:id="airPressD4" textFill="WHITE" />
+                                    <Label fx:id="visD4" textFill="WHITE" />
                                  </children>
                               </VBox>
                            </children></HBox>

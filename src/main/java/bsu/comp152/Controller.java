@@ -25,7 +25,8 @@ public class Controller implements Initializable{
             humidD0, humidD1, humidD2, humidD3, humidD4,
             windD0, windD1, windD2, windD3, windD4,
             airPressD0, airPressD1, airPressD2, airPressD3, airPressD4,
-            visD0, visD1, visD2, visD3, visD4;
+            visD0, visD1, visD2, visD3, visD4,
+            wallyText;
     public MenuButton scaleSelect;
     public MenuItem centigrade, fahrenheit, kelvin;
     private DataHandler woeidHandler;
@@ -49,7 +50,6 @@ public class Controller implements Initializable{
         var site = "https://www.metaweather.com/api/";
         var city = location.getText().toLowerCase();
         var newCity = city.replace(" ","%20");
-        System.out.println(city);
 
         if (city.length()< 1){
             location.deleteText(0, city.length());
@@ -74,6 +74,10 @@ public class Controller implements Initializable{
         WeatherData4 w4Data = weatherListHandler.grabWeatherData4(weatherListHandler.dailyWeather(
                 weatherListHandler.getWeather(weatherSite))[4]);
 
+        wallyText.setText("I love "+ city.substring(0,1).toUpperCase()+ city.substring(1)+ "!");
+
+        ArrayList<String> desiredInfo = getRequestedData();
+
         date0.setText(w0Data.applicable_date);
         date1.setText(w1Data.applicable_date);
         date2.setText(w2Data.applicable_date);
@@ -93,7 +97,7 @@ public class Controller implements Initializable{
         Image image4 = new Image(basePath+ w4Data.weather_state_abbr+ ".png");
         imageD4.setImage(image4);
 
-        DecimalFormat df = new DecimalFormat("###.##");
+        DecimalFormat df = new DecimalFormat("#####.##");
         switch (scaleSelect.getText()){
             case "Centigrade":
                 tempD0.setText(df.format(w0Data.the_temp)+ " \u00B0C");
@@ -126,6 +130,77 @@ public class Controller implements Initializable{
                 tempD3.setText(df.format(tempD3K)+ " \u00B0K");
                 tempD4.setText(df.format(tempD4K)+ " \u00B0K");
                 break;
+        }
+
+        var humid = 0;
+        var wind = 0;
+        var ap = 0;
+        var vis = 0;
+        for(var type: desiredInfo){
+            if(type.equals("Humidity")){
+                humid = 1;
+            }
+            if(type.equals("Wind")){
+                wind = 1;
+            }
+            if(type.equals("Air Pressure")){
+                ap = 1;
+            }
+            if(type.equals("Visibility")){
+                vis = 1;
+            }
+            if(humid == 1){
+                humidD0.setText(df.format(w0Data.humidity)+ "% Humidity");
+                humidD1.setText(df.format(w1Data.humidity)+ "% Humidity");
+                humidD2.setText(df.format(w2Data.humidity)+ "% Humidity");
+                humidD3.setText(df.format(w3Data.humidity)+ "% Humidity");
+                humidD4.setText(df.format(w4Data.humidity)+ "% Humidity");
+            }else {
+                humidD0.setText("");
+                humidD1.setText("");
+                humidD2.setText("");
+                humidD3.setText("");
+                humidD4.setText("");
+            }
+            if(wind == 1) {
+                windD0.setText(df.format(w0Data.wind_speed) + " mph " + w0Data.wind_direction_compass);
+                windD1.setText(df.format(w1Data.wind_speed) + " mph " + w1Data.wind_direction_compass);
+                windD2.setText(df.format(w2Data.wind_speed) + " mph " + w2Data.wind_direction_compass);
+                windD3.setText(df.format(w3Data.wind_speed) + " mph " + w3Data.wind_direction_compass);
+                windD4.setText(df.format(w4Data.wind_speed) + " mph " + w4Data.wind_direction_compass);
+            }else {
+                windD0.setText("");
+                windD1.setText("");
+                windD2.setText("");
+                windD3.setText("");
+                windD4.setText("");
+            }
+            if(ap == 1) {
+                airPressD0.setText(w0Data.air_pressure+ " mbar");
+                airPressD1.setText(w1Data.air_pressure+ " mbar");
+                airPressD2.setText(w2Data.air_pressure+ " mbar");
+                airPressD3.setText(w3Data.air_pressure+ " mbar");
+                airPressD4.setText(w4Data.air_pressure+ " mbar");
+            }else {
+                airPressD0.setText("");
+                airPressD1.setText("");
+                airPressD2.setText("");
+                airPressD3.setText("");
+                airPressD4.setText("");
+            }
+            if(vis == 1) {
+                visD0.setText(df.format(w0Data.visibility)+ " miles");
+                visD1.setText(df.format(w1Data.visibility)+ " miles");
+                visD2.setText(df.format(w2Data.visibility)+ " miles");
+                visD3.setText(df.format(w3Data.visibility)+ " miles");
+                visD4.setText(df.format(w4Data.visibility)+ " miles");
+            }else {
+                visD0.setText("");
+                visD1.setText("");
+                visD2.setText("");
+                visD3.setText("");
+                visD4.setText("");
+            }
         }
     }
 
