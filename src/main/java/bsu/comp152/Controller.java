@@ -35,6 +35,7 @@ public class Controller implements Initializable{
         woeidHandler = new DataHandler();
         weatherListHandler = new DataHandler();
 
+        condButtons = new ArrayList<RadioButton>();
         condButtons.add(humidity);
         condButtons.add(wind);
         condButtons.add(airPressure);
@@ -78,5 +79,11 @@ public class Controller implements Initializable{
                 selectedData.add(button.getText());
         }
         return selectedData;
+    }
+
+    @FXML
+    private void setScaleSelect(javafx.event.ActionEvent actionEvent){
+        var scale = (MenuItem)actionEvent.getSource();
+        scaleSelect.setText(scale.getText());
     }
 }

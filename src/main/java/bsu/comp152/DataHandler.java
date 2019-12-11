@@ -108,8 +108,6 @@ public class DataHandler {
         var todaysWeather = wotd.substring(1);
         todaysWeather = todaysWeather + "}";
 
-        System.out.println(todaysWeather);
-
         var jsonInterpreter = new Gson();
         var weatherData = jsonInterpreter.fromJson(todaysWeather, WeatherData4.class);
         return weatherData;

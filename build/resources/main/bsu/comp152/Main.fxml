@@ -38,9 +38,9 @@
                   </RadioButton>
                   <MenuButton fx:id="scaleSelect" layoutX="360.0" layoutY="50.0" mnemonicParsing="false" text="Centigrade">
                     <items>
-                      <MenuItem fx:id="centigrade" mnemonicParsing="false" text="Centigrade" />
-                      <MenuItem fx:id="fahrenheit" mnemonicParsing="false" text="Fahrenheit" />
-                        <MenuItem fx:id="kelvin" mnemonicParsing="false" text="Kelvin" />
+                      <MenuItem fx:id="centigrade" mnemonicParsing="false" onAction="#setScaleSelect" text="Centigrade" />
+                      <MenuItem fx:id="fahrenheit" mnemonicParsing="false" onAction="#setScaleSelect" text="Fahrenheit" />
+                        <MenuItem fx:id="kelvin" mnemonicParsing="false" onAction="#setScaleSelect" text="Kelvin" />
                     </items>
                   </MenuButton>
                   <RadioButton fx:id="wind" layoutX="473.0" layoutY="75.0" mnemonicParsing="false" text="Wind" textFill="WHITE" />
