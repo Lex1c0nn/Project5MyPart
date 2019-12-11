@@ -10,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -92,8 +93,39 @@ public class Controller implements Initializable{
         Image image4 = new Image(basePath+ w4Data.weather_state_abbr+ ".png");
         imageD4.setImage(image4);
 
-        if (scaleSelect.getText() == "Fahrenheit"){
-
+        DecimalFormat df = new DecimalFormat("###.##");
+        switch (scaleSelect.getText()){
+            case "Centigrade":
+                tempD0.setText(df.format(w0Data.the_temp)+ " \u00B0C");
+                tempD1.setText(df.format(w1Data.the_temp)+ " \u00B0C");
+                tempD2.setText(df.format(w2Data.the_temp)+ " \u00B0C");
+                tempD3.setText(df.format(w3Data.the_temp)+ " \u00B0C");
+                tempD4.setText(df.format(w4Data.the_temp)+ " \u00B0C");
+                break;
+            case "Fahrenheit":
+                var tempD0F = (((w0Data.the_temp* (9/5))+ 32));
+                var tempD1F = (((w1Data.the_temp* (9/5))+ 32));
+                var tempD2F = (((w2Data.the_temp* (9/5))+ 32));
+                var tempD3F = (((w3Data.the_temp* (9/5))+ 32));
+                var tempD4F = (((w4Data.the_temp* (9/5))+ 32));
+                tempD0.setText(df.format(tempD0F)+ " \u00B0F");
+                tempD1.setText(df.format(tempD1F)+ " \u00B0F");
+                tempD2.setText(df.format(tempD2F)+ " \u00B0F");
+                tempD3.setText(df.format(tempD3F)+ " \u00B0F");
+                tempD4.setText(df.format(tempD4F)+ " \u00B0F");
+                break;
+            case "Kelvin":
+                var tempD0K = (w0Data.the_temp+ 273);
+                var tempD1K = (w1Data.the_temp+ 273);
+                var tempD2K = (w2Data.the_temp+ 273);
+                var tempD3K = (w3Data.the_temp+ 273);
+                var tempD4K = (w4Data.the_temp+ 273);
+                tempD0.setText(df.format(tempD0K)+ " \u00B0K");
+                tempD1.setText(df.format(tempD1K)+ " \u00B0K");
+                tempD2.setText(df.format(tempD2K)+ " \u00B0K");
+                tempD3.setText(df.format(tempD3K)+ " \u00B0K");
+                tempD4.setText(df.format(tempD4K)+ " \u00B0K");
+                break;
         }
     }
 
